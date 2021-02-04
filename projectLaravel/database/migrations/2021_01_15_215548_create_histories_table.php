@@ -17,11 +17,9 @@ class CreateHistoriesTable extends Migration
 
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
-            // $table->unique('id');
-            // $table->foreign('id')->references('id')->on('users')->onDelete('cascade');
-            $table->string('transaction');
+            $table->string('transaction_type');
             $table->string('localization');
-            $table->double('cuote');
+            $table->double('quote');
             $table->timestamps();
         });
     }

@@ -34,7 +34,7 @@
     @foreach($records as $record)
       <div>
         <h3>{{$record->transaction}}</h3>
-        <small>Lokalizacja: {{$record->localization}}, </small>
+        <small>Szczegóły: {{$record->localization}}, </small>
         <small>kwota: {{$record->cuote}}.</small>
         </a>
       </div>

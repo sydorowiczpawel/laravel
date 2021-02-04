@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Transfer;
+use App\Models\History;
 
 
 class TransferController extends Controller
@@ -26,7 +27,6 @@ class TransferController extends Controller
     public function create()
     {
         return view('adminlte.transfer');
-        
     }
 
     /**
@@ -45,7 +45,7 @@ class TransferController extends Controller
             'quote'=> 'required'
         ]);
 
-        // Create a transaction
+        // Create and save transaction in DB/transaction
         $tr = new Transfer();
         $tr->contractor = $request->input('contractor');
         $tr->reciever = $request->input('name');
@@ -53,6 +53,14 @@ class TransferController extends Controller
         $tr->title = $request->input('title');
         $tr->quote = $request->input('quote');
         $tr->save();
+
+        //Create and save transaction in DB/history
+        $hst = new History();
+        $hst->transaction = $request->input('name');
+        $hst->localization = $request->input('title');
+        $hst->cuote = $request->input('quote');
+        $hst->save();
+
 
         return redirect('/home');
     }

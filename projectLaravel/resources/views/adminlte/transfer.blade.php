@@ -20,20 +20,20 @@
     <div>
         {{Form::label('contractor', 'Nadawca')}}
         {{Form::text('contractor', Auth::user()->name, ['class' => 'form-control'])}}
-
-        <!-- {{Form::text(Auth::user()->name, '', ['class' => 'form-control'])}} -->
     </div>
     <div>
-        {{Form::label('name', 'Imie i nazwisko obiorcy')}}
+        {{Form::label('name', 'Imie obiorcy')}}
         {{Form::text('name', '', ['class' => 'form-control'])}}
+        {{Form::label('surname', 'Nazwisko obiorcy')}}
+        {{Form::text('surname', '', ['class' => 'form-control'])}}
     </div>
-    <div>
-        {{Form::label('address', 'Adres odbiorcy')}}
+    <!-- <div>
+        {{Form::label('', 'Adres odbiorcy')}}
         {{Form::text('address', '', ['class' => 'form-control', 'placeholder' => 'Opcjonalnie'])}}
-    </div>
+    </div> -->
     <div>
-        {{Form::label('account', 'Numer konta odbiorcy')}}
-        {{Form::text('account', '', ['class' => 'form-control'])}}
+        {{Form::label('reciever_account_number', 'Numer konta odbiorcy')}}
+        {{Form::text('reciever_account_number', '', ['class' => 'form-control'])}}
     </div>
     <div>
         {{Form::label('title', 'Tytuł przelewu')}}

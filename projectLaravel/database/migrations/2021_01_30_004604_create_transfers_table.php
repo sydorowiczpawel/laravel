@@ -13,11 +13,15 @@ class CreateTransfersTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('transfers');
+
         Schema::create('transfers', function (Blueprint $table) {
-            $table->id();
-            $table->string("contractor");
-            $table->string("reciever");
-            $table->string("account_number");
+            $table->increments('id');
+            $table->string('account_number')->unique();
+            $table->foreign('account_number')->references('account_number')->on('users');
+            $table->date("data");
+            $table->string("reciever_name");
+            $table->string("reciever_account_number");
             $table->string("title");
             $table->double('quote');
             $table->timestamps();
