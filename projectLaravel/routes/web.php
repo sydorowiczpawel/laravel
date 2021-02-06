@@ -17,7 +17,9 @@ Route::get('/rates', [App\Http\Controllers\ex_rates_ctrl::class, 'APIrates'])->n
 
 Route::get('/kantor', [App\Http\Controllers\cantor_ctrl::class, 'calculator'])->name('adminlte.kantor');
 
-Route::get('/mypage', [App\Http\Controllers\mypage_controller::class, 'mypage'])->name('adminlte.mypage');
+// Route::get('/mypage', [App\Http\Controllers\mypage_controller::class, 'index'])->name('adminlte.mypage');
+Route::get('/mypage', [App\Http\Controllers\mypage_controller::class, 'edit'])->name('adminlte.mypage');
+Route::post('/mypage/{id}', [App\Http\Controllers\mypage_controller::class, 'update']);
 
 Route::get('/card', [App\Http\Controllers\creditcard_controller::class, 'creditcard'])->name('adminlte.creditcard');
 

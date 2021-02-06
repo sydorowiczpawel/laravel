@@ -18,7 +18,7 @@ class CreateBankAccountsTable extends Migration
         Schema::create('bank_accounts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('account_number')->unique();
-            $table->foreign('account_number')->references('id')->on('users');
+            $table->foreign('account_number')->references('account_number')->on('users');
             $table->string('user_id')->unique();
             $table->foreign('user_id')->references('user_id')->on('users');
             $table->double('saldo');
