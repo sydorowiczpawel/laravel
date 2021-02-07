@@ -27,7 +27,7 @@
 
 <div class="container">
 @foreach($data as $item)
-        <h3>{{$item->transaction}} {{$item->cuote}}zł</h3>
+        <h3>{{$item->transaction_type}} {{$item->quote}}zł</h3>
         <small>Lokalizacja: {{$item->localization}} </small>
         <small>data: {{$item->created_at}}</small>
         </a>

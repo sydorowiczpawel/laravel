@@ -44,9 +44,9 @@ class HistoryController extends Controller
 
         //Create history record
         $record = new History();
-        $record->transaction = $request->input('transaction');
+        $record->transaction_type = $request->input('transaction');
         $record->localization = $request->input('localization');
-        $record->cuote = $request->input('cuote');
+        $record->quote = $request->input('cuote');
         $record->save();
 
         return redirect('/history')->with('success', 'Wpis utworzony pomyślnie');

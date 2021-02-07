@@ -28,10 +28,12 @@ class admin_controller extends Controller
         $user = User::find($id);
         $user->name = $input['name'];
         $user->email = $input['email'];
+        $user->account_number = $input['account_number'];
+        $user->user_id = $input['user_id'];
         $user->password = $input['password'];
         $user->save();
 
-        return redirect('/admin')->with('success', 'Udało się');
+        return redirect('/mypage')->with('success', 'Udało się');
     }
 
     public function create()

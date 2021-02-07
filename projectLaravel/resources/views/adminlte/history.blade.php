@@ -35,7 +35,7 @@
       <div>
         <h3>{{$record->transaction}}</h3>
         <small>Szczegóły: {{$record->localization}}, </small>
-        <small>kwota: {{$record->cuote}}.</small>
+        <small>kwota: {{$record->quote}}.</small>
         </a>
       </div>
     @endforeach

@@ -4,13 +4,26 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\DB;
+
 
 class mypage_controller extends Controller
 {
     // function index(){
-    //     $records = User::all();
-    //     return view('adminlte.mypage')->with('records', $records);
+    //     return view('adminlte.mypage');
     // }
+
+    function index(){
+        {
+            $users = User::all();
+            return view('adminlte.mypage')->with('users', $users);
+        }
+    }
+
+    public function create()
+    {
+        return view('adminlte.generator');
+    }
 
     public function edit($id){
         $user = User::find($id);
@@ -53,5 +66,11 @@ class mypage_controller extends Controller
         $user->save();
 
         return redirect('/mypage')->with('success', 'Udało się');
+    }
+
+    public function show($id)
+    {
+        $user = User::find($id);
+        return view('adminlte.mypage')->with('user', $user);
     }
 }
