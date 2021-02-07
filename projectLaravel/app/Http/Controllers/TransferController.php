@@ -22,46 +22,38 @@ class TransferController extends Controller
 
     public function store(Request $request)
     {
-        $reciever = $request->input('reciever_name');
-        $account = $request->input('reciever_account_number');
+        $tr = $request->input('transaction');
+        $u_idk = $request->input('user_id');
+        $u_account = $request->input('account_number');
+        $r_idk = $request->input('reciever_idk');
+        $r_account = $request->input('reciever_account');
         $title = $request->input('title');
         $quote = $request->input('quote');
+        $date = date("Y-m-d");
 
-        DB::table('transfers')
+        DB::table('histories')
         ->insert(
             [
-                'reciever_name'=>$reciever,
-                'reciever_account_number'=>$account,
+                'transaction'=>$tr,
+                'account_number'=>$u_account,
+                'user_id'=>$u_idk,
+                'receiver_idk'=>$r_idk,
+                'receiver_account'=>$r_account,
                 'title'=>$title,
                 'quote'=>$quote,
+                'data'=>$date
             ]
-            );
-    //     $this->validate($request, [
-    //         // 'contractor' => 'required',
-    //         'reciever_name' => 'required',
-    //         'reciever_account_number'=> 'required',
-    //         'title'=> 'required',
-    //         'quote'=> 'required'
-    //     ]);
+        );
 
-    //     // Create and save transaction in DB/transaction
-    //     $tr = new Transfer();
-    //     // $tr->contractor = $request->input('contractor');
-    //     $tr->reciever_name = $request->input('reciever_name');
-    //     $tr->reciever_account_number = $request->input('reciever_account_number');
-    //     $tr->title = $request->input('title');
-    //     $tr->quote = $request->input('quote');
-    //     $tr->save();
+        DB::table('bank_accounts')
+        ->where('account_number', $r_account)
+        ->increment('saldo', $quote);
 
-    //     //Create and save transaction in DB/history
-    //     $hst = new History();
-    //     $hst->transaction = $request->input('name');
-    //     $hst->localization = $request->input('title');
-    //     $hst->cuote = $request->input('quote');
-    //     $hst->save();
+        DB::table('bank_accounts')
+        ->where('account_number', $u_account)
+        ->decrement('saldo', $quote);
 
-
-    //     return redirect('/home');
+        return redirect('/home');
     }
 
     public function show($id)
@@ -83,42 +75,4 @@ class TransferController extends Controller
     {
         //
     }
-
-    // public function transferOut(Request $request){
-    //     $account_number = $request->input('account_number');
-    //     $data = date("Y-m-d");
-    //     $price = $request->input('price');
-    //     $receiver_name= $request->input('receiver_number');
-    //     $receiver_number = $request->input('receiver_number');
-    //     $title = $request->input('title');
-
-    //     DB::table('history_accounts')
-    //         ->insert(
-    //             [   
-    //                 'account_number'=>$account_number,
-    //                 'data'=>$data,
-    //                 'receiver_name'=>$receiver_name,
-    //                 'receiver_number'=>$receiver_number,       
-    //                 'title'=>$title,
-    //                 'price'=>$price
-    //             ]
-    //         );
-    //     DB::table('bank_accounts')
-    //         ->where(
-    //             'account_number', $receiver_number
-    //         )
-    //         ->increment(
-    //            'saldo', $price
-    //         );
-    //     DB::table('bank_accounts')
-    //         ->where(
-    //             'account_number',$account_number
-    //         )
-    //         ->decrement(
-    //             'saldo', $price
-    //         );
-    //     return 'Twój przelew został wykonany.
-    //     <a href="home">Powrót do strony głównej</a>
-    //     ';
-    // }
 }

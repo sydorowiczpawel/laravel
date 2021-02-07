@@ -24,6 +24,14 @@
     {!! Form::open(['url' => '/history/store', 'method' => 'POST']) !!}
     {{ Form::token() }}
     <div>
+        {{Form::label('user_id', 'Twój IDK')}}
+        {{Form::text('user_id', Auth::user()->user_id, ['class' => 'form-control', 'placeholder' => 'Rodzaj transakcji'])}}
+    </div>
+    <div>
+        {{Form::label('account_number', 'Obciążono rachunek')}}
+        {{Form::text('account_number', Auth::user()->account_number, ['class' => 'form-control', 'placeholder' => 'Rodzaj transakcji'])}}
+    </div>
+    <div>
         {{Form::label('transaction', 'Rodzaj transakcji')}}
         {{Form::text('transaction', '', ['class' => 'form-control', 'placeholder' => 'Rodzaj transakcji'])}}
     </div>
@@ -32,8 +40,8 @@
         {{Form::text('localization', '', ['class' => 'form-control', 'placeholder' => 'Lokalizacja'])}}
     </div>
     <div>
-        {{Form::label('cuote', 'Kwota')}}
-        {{Form::text('cuote', '', ['class' => 'form-control', 'placeholder' => 'Kwota'])}}
+        {{Form::label('quote', 'Kwota')}}
+        {{Form::text('quote', '', ['class' => 'form-control', 'placeholder' => 'Kwota'])}}
     </div>
     <div>
         {{Form::submit('Zatwierdź', ['class' => 'button button1'])}}

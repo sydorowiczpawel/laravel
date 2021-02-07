@@ -32,7 +32,7 @@ class admin_controller extends Controller
         $saldo = $request->input('saldo');
 
         DB::table('users')
-        ->where('id', 1)
+        ->where('id', $id)
         ->update(
             [
                 'name'=>$name,

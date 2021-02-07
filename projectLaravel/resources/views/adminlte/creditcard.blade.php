@@ -115,15 +115,15 @@ function generujLiczby()
 	var temp="";
 	for(var i=1;i<=16;i++)
 	{
-		temp+=Math.floor(Math.random() * 10); 
+		temp+=Math.floor(Math.random() * 10);
 		if(i%4==0)
 		{
 			temp+=" ";
 		}
 	}
   document.getElementById("numerki").innerHTML = temp;
-  
-  	var temp="";
+
+  var temp="";
 	var temp2=0;
 	for(var i=0;i<2;i++)
 	{
@@ -149,7 +149,7 @@ function generujLiczby()
 			{
 				temp+=temp2;
 			}
-		}			
+		}
 	}
   document.getElementById("data").innerHTML = temp;
 }
@@ -159,7 +159,7 @@ function generujCVC()
 	var temp="";
 	for(var i=0;i<3;i++)
 	{
-		temp+=Math.floor(Math.random() * 10); 
+		temp+=Math.floor(Math.random() * 10);
 	}
   document.getElementById("cvc").innerHTML = temp;
 }

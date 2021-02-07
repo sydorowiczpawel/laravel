@@ -9,10 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class mypage_controller extends Controller
 {
-    // function index(){
-    //     return view('adminlte.mypage');
-    // }
-
     function index(){
         {
             $users = User::all();

@@ -18,16 +18,28 @@
     {!! Form::open(['url' => '/transfer/store', 'method' => 'POST']) !!}
     {{ Form::token() }}
     <div>
+        {{Form::label('transaction', 'Typ operacji')}}
+        {{Form::text('transaction', 'Przelew krajowy', ['class' => 'form-control'])}}
+    </div>
+    <div>
         {{Form::label('contractor', 'Nadawca')}}
         {{Form::text('contractor', Auth::user()->name, ['class' => 'form-control'])}}
     </div>
     <div>
-        {{Form::label('reciever_name', 'Imie obiorcy')}}
-        {{Form::text('reciever_name', '', ['class' => 'form-control'])}}
+        {{Form::label('account_number', 'Z konta')}}
+        {{Form::text('account_number', Auth::user()->account_number, ['class' => 'form-control'])}}
     </div>
     <div>
-        {{Form::label('reciever_account_number', 'Numer konta odbiorcy')}}
-        {{Form::text('reciever_account_number', '', ['class' => 'form-control'])}}
+        {{Form::label('user_id', 'IDK nadawcy')}}
+        {{Form::text('user_id', Auth::user()->user_id, ['class' => 'form-control'])}}
+    </div>
+    <div>
+        {{Form::label('reciever_idk', 'IDK odbiorcy')}}
+        {{Form::text('reciever_idk', '', ['class' => 'form-control'])}}
+    </div>
+    <div>
+        {{Form::label('reciever_account', 'Numer konta odbiorcy')}}
+        {{Form::text('reciever_account', '', ['class' => 'form-control'])}}
     </div>
     <div>
         {{Form::label('title', 'Tytuł przelewu')}}

@@ -13,17 +13,20 @@ class CreateHistoriesTable extends Migration
      */
     public function up()
     {
-        Schema::dropIfExists('histories');
 
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
             $table->string('account_number');
             $table->foreign('account_number')->references('account_number')->on('users');
+            $table->string('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
             $table->date('data');
-            $table->string('receiver_name');
-            $table->string('receiver_number');
-            $table->string('title');
-            $table->float('price');
+            $table->string('receiver_idk')->nullable();;
+            $table->string('receiver_account')->nullable();
+            $table->string('transaction')->nullable();
+            $table->string('localization')->nullable();
+            $table->string('title')->nullable();
+            $table->float('quote');
         });
     }
 

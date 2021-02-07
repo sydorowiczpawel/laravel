@@ -25,7 +25,7 @@
 }
 
 .button {
-  background-color: #4CAF50; /* Green */
+  background-color: #4CAF50;
   width: 250px;
   border: none;
   color: white;
@@ -85,11 +85,11 @@
   </tr>
   <tr>
     <td>{{Form::label('account_number', 'Numer konta')}}</td>
-    <td>{{Form::text('account_number', 'tu wklej numer konta', ['class' => 'form-control'])}}</td>
+    <td>{{Form::text('account_number', Auth::user()->account_number, ['class' => 'form-control'])}}</td>
   </tr>
   <tr>
     <td>{{Form::label('user_id', 'IDK użytkownika')}}</td>
-    <td>{{Form::text('user_id', 'tu wklej numer IDK', ['class' => 'form-control'])}}</td>
+    <td>{{Form::text('user_id', Auth::user()->user_id, ['class' => 'form-control'])}}</td>
   </tr>
   <tr>
     <td>{{Form::label('password', 'Hasło')}}</td>
@@ -101,7 +101,6 @@
   </tr>
 </table>
 
-{{Form::hidden('_method', 'PUT')}}
 <div>
 {{Form::submit('Submit', ['class' => 'button button_green'])}}
 {!!Form::close() !!}
