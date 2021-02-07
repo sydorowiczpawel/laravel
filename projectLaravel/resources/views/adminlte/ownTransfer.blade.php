@@ -95,10 +95,6 @@
     <td>{{Form::label('password', 'Hasło')}}</td>
     <td>{{Form::text('password', Auth::user()->password, ['class' => 'form-control'])}}</td>
   </tr>
-  <tr>
-    <td>{{Form::label('saldo', 'Stan konta')}}</td>
-    <td>{{Form::text('saldo', Auth::user()->saldo, ['class' => 'form-control'])}}</td>
-  </tr>
 </table>
 
 {{Form::hidden('_method', 'PUT')}}

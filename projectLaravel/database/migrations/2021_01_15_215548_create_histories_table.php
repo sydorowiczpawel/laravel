@@ -17,10 +17,13 @@ class CreateHistoriesTable extends Migration
 
         Schema::create('histories', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('transaction_type');
-            $table->string('localization');
-            $table->double('quote');
-            $table->timestamps();
+            $table->string('account_number');
+            $table->foreign('account_number')->references('account_number')->on('users');
+            $table->date('data');
+            $table->string('receiver_name');
+            $table->string('receiver_number');
+            $table->string('title');
+            $table->float('price');
         });
     }
 

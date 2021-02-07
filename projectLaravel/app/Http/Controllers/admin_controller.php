@@ -22,18 +22,30 @@ class admin_controller extends Controller
 
     public function update(Request $request, $id)
     {
-        $input = $request->all();
-
         //Update a User
         $user = User::find($id);
-        $user->name = $input['name'];
-        $user->email = $input['email'];
-        $user->account_number = $input['account_number'];
-        $user->user_id = $input['user_id'];
-        $user->password = $input['password'];
-        $user->save();
+        $name = $request->input('name');
+        $email = $request->input('email');
+        $account = $request->input('account_number');
+        $idk = $request->input('user_id');
+        $password = $request->input('password');
+        $saldo = $request->input('saldo');
 
-        return redirect('/mypage')->with('success', 'Udało się');
+        DB::table('users')
+        ->where('id', 1)
+        ->update(
+            [
+                'name'=>$name,
+                'email'=>$email,
+                'account_number'=>$account,
+                'user_id'=>$idk,
+                'password'=>$password,
+                'saldo'=>$saldo
+            ]
+        );
+
+        return redirect('/userAccount');
+
     }
 
     public function create()

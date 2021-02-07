@@ -22,15 +22,9 @@
         {{Form::text('contractor', Auth::user()->name, ['class' => 'form-control'])}}
     </div>
     <div>
-        {{Form::label('name', 'Imie obiorcy')}}
-        {{Form::text('name', '', ['class' => 'form-control'])}}
-        {{Form::label('surname', 'Nazwisko obiorcy')}}
-        {{Form::text('surname', '', ['class' => 'form-control'])}}
+        {{Form::label('reciever_name', 'Imie obiorcy')}}
+        {{Form::text('reciever_name', '', ['class' => 'form-control'])}}
     </div>
-    <!-- <div>
-        {{Form::label('', 'Adres odbiorcy')}}
-        {{Form::text('address', '', ['class' => 'form-control', 'placeholder' => 'Opcjonalnie'])}}
-    </div> -->
     <div>
         {{Form::label('reciever_account_number', 'Numer konta odbiorcy')}}
         {{Form::text('reciever_account_number', '', ['class' => 'form-control'])}}
@@ -49,7 +43,6 @@
 
     </div>
     {!!Form::close() !!}
-    </>
 </div>
 
     </section>

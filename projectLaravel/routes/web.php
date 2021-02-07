@@ -41,3 +41,5 @@ Route::delete('/history/delete/{id}', [App\Http\Controllers\HistoryController::c
 Route::get('/account', [App\Http\Controllers\BallanceController::class, 'index']);
 Route::get('/transfer', [App\Http\Controllers\TransferController::class, 'create']);
 Route::post('/transfer/store', [App\Http\Controllers\TransferController::class, 'store']);
+Route::put('/ownTransfer/{id}', [App\Http\Controllers\admin_controller::class, 'update']);
+

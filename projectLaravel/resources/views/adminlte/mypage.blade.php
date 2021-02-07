@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- @include('layouts.head'); -->
+@include('layouts.head');
 <body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed layout-footer-fixed">
 <div class="wrapper">
 @include('layouts.navbar');
@@ -11,8 +11,7 @@
     <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- <h3><label>{{ Auth::user()->name}}</label></h3> -->
-        <!-- <h3>e-mail: <label>{{ Auth::user()->email}}</label></h3> -->
+        
       <div>
         <div>
           <h3>{{ Auth::user()->name}}</h3>
@@ -25,6 +24,9 @@
         </div>
         <div>
         <p>Numer IDK: {{ Auth::user()->user_id}} </p>
+        </div>
+        <div>
+        <p>Saldo: {{ Auth::user()->saldo}} </p>
         </div>
         <div>
           <h3>Drogi użytkowniku, aby w pełni korzystać z funkcjonalności NBKP musisz posiadać indywidualny nr IDK oraz konta bankowego.</h3>
@@ -43,6 +45,8 @@
   </div>
   <aside class="control-sidebar control-sidebar-dark"></aside>
   @include('layouts.footer')
+@include('layouts.scripts')
+
 </div>
 </body>
 </html>
