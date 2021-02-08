@@ -44,6 +44,14 @@ class admin_controller extends Controller
             ]
         );
 
+        DB::table('bank_accounts')
+        ->insert(
+            [
+                'account_number'=>$account,
+                'user_id'=>$idk,
+                'saldo'=>$saldo
+            ]
+        );
         return redirect('/userAccount');
 
     }

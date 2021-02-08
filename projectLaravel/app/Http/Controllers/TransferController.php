@@ -53,6 +53,16 @@ class TransferController extends Controller
         ->where('account_number', $u_account)
         ->decrement('saldo', $quote);
 
+        DB::table('users')
+        ->where('account_number', $r_account)
+        ->increment('saldo', $quote);
+
+        DB::table('users')
+        ->where('account_number', $u_account)
+        ->decrement('saldo', $quote);
+
+
+
         return redirect('/home');
     }
 
